@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Baskervville:ital@0;1&family=Cormorant+Garamond&family=Fanwood+Text:ital@0;1&family=Goudy+Bookletter+1911&family=Joan&family=League+Spartan:wght@300&family=Noto+Emoji:wght@300&family=Roboto+Mono:ital,wght@0,400;1,100&family=Source+Code+Pro:wght@200;400&family=Source+Sans+Pro:wght@300;400;600&family=VT323&family=Xanh+Mono:ital@0;1&display=swap');
+
+/*
+FONT GUIDE
+Newspaper headline font:
+font-family: "Xanh Mono", monospace;
+
+Literary fonts:
+font-family: "Arvo", serif;
+font-family: "Baskervville", serif;
+font-family: "Cormorant Garamond", serif;
+font-family: "Fanwood Text", serif;
+font-family: "Goudy Bookletter 1911", serif;
+font-family: "Joan", serif;
+
+Clean fonts:
+font-family: "League Spartan", sans-serif;
+
+Codecomputer fonts:
+font-family: "Noto Emoji", sans-serif;
+font-family: "Source Sans Pro", sans-serif;
+font-family: "Roboto Mono", monospace;
+font-family: "Source Code Pro", monospace;
+(pixelated arcade code font:)
+font-family: "VT323", monospace;
+
+
+To see all of these fonts in-browser: https://fonts.google.com/share?selection.family=Arvo:wght@400;700%7CBaskervville:ital@0;1%7CCormorant%20Garamond%7CFanwood%20Text:ital@0;1%7CGoudy%20Bookletter%201911%7CJoan%7CLeague%20Spartan:wght@300%7CNoto%20Emoji:wght@300%7CRaleway:ital@0;1%7CRoboto%20Mono:ital,wght@0,400;1,100%7CSource%20Code%20Pro:wght@200;400%7CSource%20Sans%20Pro:wght@300;400;600%7CVT323%7CXanh%20Mono:ital@0;1
+*/
+
+// using native CSS custom properties
+ :root,
+ [data-theme="literary"] {
+   --color-bg: floralwhite;
+   --color-contrast-lower: hsl(0, 0%, 95%);
+   --color-contrast-low: hsl(240, 1%, 83%);
+   --color-contrast-medium: hsl(240, 1%, 48%);
+   --color-contrast-high: hsl(240, 4%, 20%);
+   --color-contrast-higher: #1f120c; // deep brown
+ }
+
+ [data-theme="outside"] {
+   --color-bg: #9eb77a; // palest green
+   --color-contrast-lower: hsl(0, 0%, 95%);
+   --color-contrast-low: hsl(240, 1%, 83%);
+   --color-contrast-medium: hsl(240, 1%, 48%);
+   --color-contrast-high: hsl(240, 4%, 20%);
+   --color-contrast-higher: #1c3025; // midnight green
+ }
+ 
+ [data-theme="inside"] {
+   --color-bg: #1c3025; // flush
+   --color-contrast-lower: hsl(0, 0%, 95%);
+   --color-contrast-low: hsl(240, 1%, 83%);
+   --color-contrast-medium: hsl(240, 1%, 48%);
+   --color-contrast-high: hsl(240, 4%, 20%);
+   --color-contrast-higher: #caa79a; // calm-purple-gray
+ }
+
+ // i'm using box-sizing bc i know i want to play with borders and wanted to make positioning elements easier on myself
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--color-bg);
+
+  section {
+    margin: 2em 10em 2em 10em;
+  }
+}
+
+// adds yellow highlighter effect
+strong {
+  display: inline;
+  background-image: linear-gradient( -100deg,rgba(255,250,150,0.2),rgba(255,250,150,0.8) 92%,rgba(255,250,150,0.2) );
+}

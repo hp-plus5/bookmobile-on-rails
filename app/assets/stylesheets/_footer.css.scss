@@ -1,0 +1,32 @@
+footer {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+
+    nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-around; 
+        text-transform: uppercase;
+
+        ul li {
+            font-size: 10px;
+            list-style: lower-roman;
+            
+            a {
+                color: var(--color-contrast-high);
+                cursor: pointer;
+                font-size: 14px;
+                margin-left: 6px;
+            }
+        }
+    }
+
+    #paris {
+        background-image: url('ink_drawing-The_Paris_Reviewfooter.png');
+        background-size: cover;
+        height: 23em;
+        width: 100%;
+    }
+}

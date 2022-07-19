@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @personal_author %>
+
+<div>
+  <%= link_to "Edit this personal author", edit_personal_author_path(@personal_author) %> |
+  <%= link_to "Back to personal authors", personal_authors_path %>
+
+  <%= button_to "Destroy this personal author", @personal_author, method: :delete %>
+</div>

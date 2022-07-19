@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmobile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <section>
+      <h1>HOME</h1>
+      <%= yield %>
+    </section>
+    <%= render "layouts/footer" %>
+  </body>
+</html>

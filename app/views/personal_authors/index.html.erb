@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Personal authors</h1>
+
+<div id="personal_authors">
+  <% @personal_authors.each do |personal_author| %>
+    <%= render personal_author %>
+    <p>
+      <%= link_to "Show this personal author", personal_author %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New personal author", new_personal_author_path %>

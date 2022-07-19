@@ -1,0 +1,28 @@
+<% if Current.user %>
+    Logged in as: <%= Current.user.email %><br>
+    <%= link_to 'Edit Password', edit_password_path %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+<% else %>
+    <div class="link-tree">
+        <button class="primary">
+            <%= link_to 'Log in', sign_in_path %>
+        </button>
+        <button class="secondary">
+            <%= link_to 'Sign up', sign_up_path %>
+        </button>
+<% end %>
+</div>
+<h2><strong>TO RESOLVE</strong></h2>
+<ol>
+    done: <li>change password input to *</li>
+    <li>make the form actually send data somewhere via parameter from wider page context so that the form can serve many purposes</li>
+    <li>extract the core terminal style from the form aspect</li>
+    <li>analyze if this style of component building is where i want to go. what are my goals?</li>
+        <ul>
+            <li>insert terminal into any page in any position</li>
+            <li>be able to glitch the terminal in and out</li>
+        </ul>
+    <li>tweak binding.pry to have old methods you're used to like continue and step</li>
+    <li>make it so that in the PersonalBook.RelevantLinks property, target="blank" and rel="noopener" apply for security purposes.</li>
+</ol>
+<%= render "/components/terminal_form", model: @user, form: true, url: sign_up_path %>

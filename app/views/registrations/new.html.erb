@@ -1,0 +1,80 @@
+<h1>Sign Up</h1>
+<div class="window">
+<div class="window_bar">
+    <div class="window_bar_button"></div>
+    <div class="window_bar_button"></div>
+    <div class="window_bar_button"></div>
+</div>
+<div class="window_contents">
+<%= form_with model: @user, url: sign_up_path, id: "sign_up" do |f| %>
+  <fieldset class="form_line" for="email">
+      <%= f.label :email, class: "command" %><br>
+      <%= f.email_field :email %>
+      <output for="email" id="email_output" onclick="focus_input(this)"></output>
+    </fieldset>
+    <fieldset class="form_line" for="password">
+      <%= f.label :password, class: "command" %><br>
+      <%= f.password_field :password %>
+      <output for="password" id="password_output" onclick="focus_input(this)"></output>
+    </fieldset>
+    <fieldset class="form_line" for="password_confirm">
+      <%= f.label :password_confirm, "Repeat your password", class: "command" %><br>
+      <%= f.password_field :password_confirm %>
+      <output for="password_confirm" id="password_confirm_output" onclick="focus_input(this)"></output>
+    </fieldset>
+    <%= f.submit 'Sign Up' %>
+<% end %>
+</div>
+</div>
+
+<script>
+    // this updates the output to mimic the input so that it looks like the user is typing (but with a custom cursor)
+    const form = document.getElementById('sign_up');
+    form.addEventListener('input', function(event) {
+      field_element_name = event.srcElement.name;
+      // the following line is parsing the FormHelper's dynamic concatenation of `model[attribute]`.
+      field_name = field_element_name.split("[")[1].split("]")[0];
+      console.log(field_name);
+      
+      field = field_element_name.split("[")[0] + "_" + field_element_name.split("[")[1].split("]")[0];
+      console.log(field);
+
+      field_input = document.getElementById(`${field}`);
+      field_output = document.getElementById(`${field_name}_output`);
+      console.log(field_input, field_output);
+
+      if (!field.includes("password")) {
+        field_output.value = field_input.value;
+      } else {
+        if (field_input.value.length === 0) {
+            field_output.value = "";
+        } else if (field_input.value.length < field_output.value.length) {
+            field_output.value = field_output.value.slice(0, -1);
+        } else if (field_input.value.length > field_output.value.length) {
+            field_output.value = field_output.value + "*";
+        } else {
+            console.log("huh");
+        }
+      }
+    });
+
+
+    // this adds a class to the content of the email box if it's invalid just to spice things up
+    const email_input = document.getElementById('user_email');
+    const email_output = document.getElementById('email_output');
+    email_input.addEventListener('focusout', function() {
+        if (!email_input.checkValidity()) {
+            email_output.classList.add("output_invalid");
+            email_output.value = "you're lying to me";
+        } else {
+            if (email_output.classList.contains("output_invalid")) {
+                email_output.classList.remove("output_invalid");
+            }
+        }
+    });
+
+    // this allows the user's focus to be on the input even though it's hidden/unclickable underneath the output
+    function focus_input(output) {
+        output.previousElementSibling.focus();
+    }
+</script>

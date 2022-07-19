@@ -1,0 +1,90 @@
+
+/* WINDOW STYLING */
+.window {
+    border: 1px solid var(--color-contrast-higher);
+    border-radius: 8px; 
+    font-family: "VT323", monospace;
+    height: auto;
+    margin-top: 16px;
+    max-width: 600px;
+    padding-top: 12px;
+    width: 100%;
+  }
+  
+  .window_bar {
+    border-bottom: 1px solid var(--color-contrast-higher);
+    display: flex;
+    flex-wrap: nowrap;
+    height: 24px;
+    padding-left: 12px;
+    position: relative;
+    top: 0px;
+    width: 100%;
+  }
+  
+  .window_bar_button {
+    border: 1px solid var(--color-contrast-higher);
+    border-radius: 30px;
+    height: 12px;
+    margin-right: 8px;
+    width: 12px;
+  }
+  
+  .window_contents {
+    background-color: black;
+    color: limegreen;
+    padding: 16px;
+    font-family: monospace;
+  
+    .form_line {
+      align-items: center;
+      border: none;
+      box-shadow: none;
+      display: flex;
+      gap: 2px;
+      width: 100%;
+    }
+  
+    label {
+      width: 30%;
+    }
+  
+    input {
+      background-color: black;
+      border: none;
+      margin-left: 1em;
+      width: 6em;
+      z-index: 0;
+  
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  
+    output {
+      background-color: black;
+      border: none;
+      color: limegreen;
+      margin-left: -6em;
+      padding: 2px;
+      width: 100%;
+      z-index: 1;
+  
+      &::after, :focus {
+        background-color: black;
+        color: limegreen;
+        content: "█";
+        animation: blink-animation 1s steps(5, start) infinite;
+        @keyframes blink-animation {
+          to {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  
+    .output_invalid {
+      color: pink;
+    }
+  }
+  
