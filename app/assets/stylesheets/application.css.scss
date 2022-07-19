@@ -93,3 +93,28 @@ strong {
   display: inline;
   background-image: linear-gradient( -100deg,rgba(255,250,150,0.2),rgba(255,250,150,0.8) 92%,rgba(255,250,150,0.2) );
 }
+
+.strikethrough {
+  position: relative;
+
+  &::before {
+    content: ""; // must have assigned value
+    position: absolute;
+    left: -5%;
+    top: 50%;
+    right: -10%;
+    border-top: 1.5px solid #dd0031!important;
+    border-color: inherit;
+  
+    -webkit-transform:rotate(-4deg);
+    -moz-transform:rotate(-4deg);
+    -ms-transform:rotate(-4deg);
+    -o-transform:rotate(-4deg);
+    transform:rotate(-4deg);
+  }
+}
+
+.line {
+  height: 1px;
+  background: black;
+}
